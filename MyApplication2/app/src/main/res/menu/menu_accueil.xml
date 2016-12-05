@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.co.pickit_app.Accueil">
+    <item
+        android:id="@+id/action_list"
+        android:orderInCategory="100"
+        android:title="@string/mes_listes"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_object"
+        android:orderInCategory="100"
+        android:title="@string/mes_objets"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_basestation"
+        android:orderInCategory="100"
+        android:title="@string/ma_bs"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_account"
+        android:orderInCategory="100"
+        android:title="@string/compte"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="100"
+        android:title="@string/a_propos"
+        app:showAsAction="never" />
+</menu>
