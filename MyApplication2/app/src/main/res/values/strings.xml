@@ -13,5 +13,6 @@
     <string name="title_activity_about">About PickIT</string>
     <string name="title_activity_my_bs">MyBS</string>
     <string name="title_activity_account">Account</string>
+    <string name="title_activity_add_obj">add_obj</string>
 
 </resources>

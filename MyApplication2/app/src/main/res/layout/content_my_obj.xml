@@ -13,11 +13,10 @@
     tools:context="com.example.co.pickit_app.MyObj"
     tools:showIn="@layout/activity_my_obj">
 
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id= "@+id/List_ob">
-    </ListView>
-
+        android:id="@+id/list_obj"
+        android:scrollbars="vertical" />
 
 </RelativeLayout>

@@ -4,19 +4,17 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.ArrayAdapter;
+
 
 public class MyList extends AppCompatActivity {
 
     ListView mListView;
-    String[] list_name = new String[]{
-            "Baby", "Work","Granny", "Picnic", "Grocery", "Trip to La Réunion",
-            "Let's go to Montpelier", "Crayon bois et more","Cleaning in Paris",
-            "Project food","Yoni :)"
-    };
+    FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,18 +23,19 @@ public class MyList extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.add_list);
-        fab.setOnClickListener(new View.OnClickListener() {
+        fab = (FloatingActionButton) findViewById(R.id.add_list);
+
+      /*  fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
-        mListView = (ListView) findViewById(R.id.List_list);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(MyList.this,
-                android.R.layout.simple_expandable_list_item_1, list_name);
-        mListView.setAdapter(adapter);
+        final RecyclerView rv = (RecyclerView) findViewById(R.id.list_list);
+        rv.setLayoutManager(new LinearLayoutManager(this));
+        rv.setAdapter(new list_adapter());
     }
 }
+

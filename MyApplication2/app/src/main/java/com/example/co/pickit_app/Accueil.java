@@ -65,6 +65,8 @@ public class Accueil extends AppCompatActivity {
             startActivity(intent);
             return true;
         }
+
+
         return super.onOptionsItemSelected(item);
     }
 }
