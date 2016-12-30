@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,13 +17,17 @@ import java.util.List;
 public class obj_adapter extends RecyclerView.Adapter<obj_adapter.MyViewHolder>{
 
 
-    public String Data_obj [] = {"Pepito","Power Supply","Keyboard","More Pepito","Teddy Bear <3","Color lens","Wooden pencil","Chocolate",
+   /* public String Data_obj [] = {"Pepito","Power Supply","Keyboard","More Pepito","Teddy Bear <3","Color lens","Wooden pencil","Chocolate",
                                     "WSN paper","USRP","Bus Card","ID","Computer","Wallet"};
+*/
 
+    Data data = new Data();
+    public ArrayList<String> Data_obj = data.getList_obj();
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         public TextView mTextView;
+
         public MyViewHolder(View v) {
             super(v);
             mTextView = (TextView) v.findViewById(R.id.name_obj);
@@ -30,7 +36,7 @@ public class obj_adapter extends RecyclerView.Adapter<obj_adapter.MyViewHolder>{
 
     @Override
     public int getItemCount() {
-        return Data_obj.length;
+        return Data_obj.size();
     }
 
     @Override
@@ -43,7 +49,8 @@ public class obj_adapter extends RecyclerView.Adapter<obj_adapter.MyViewHolder>{
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.mTextView.setText(Data_obj[position]);
+        holder.mTextView.setText(Data_obj.get(position));
+
     }
 
 

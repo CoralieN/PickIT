@@ -2,6 +2,7 @@ package com.example.co.pickit_app;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Pair;
 import android.view.LayoutInflater;
@@ -59,13 +60,15 @@ public class list_adapter extends RecyclerView.Adapter<list_adapter.MyViewHolder
             name = ((TextView) itemView.findViewById(R.id.name));
             description = ((TextView) itemView.findViewById(R.id.description));
 
-            itemView.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view) {
-                    new AlertDialog.Builder(itemView.getContext())
+                    Intent intent = new Intent(view.getContext(), Edit_list.class);
+                    // TO DO: startActivity(intent);
+                    /*new AlertDialog.Builder(itemView.getContext())
                             .setTitle(currentPair.first)
                             .setMessage(currentPair.second)
-                            .show();
+                            .show();*/
                 }
             });
         }
