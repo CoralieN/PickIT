@@ -19,7 +19,7 @@
         android:hint="Name"
         android:id="@+id/fillnameobj"/>
 
-    <Button
+    <!-- <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_scan"
@@ -27,14 +27,7 @@
         android:layout_margin="20dp"
         android:layout_below="@+id/fillnameobj"
         android:id="@+id/scanbutton"
-        android:textColor="@color/white"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/code"
-        android:layout_below="@+id/scanbutton"
-        android:text="Code: "/>
+        android:textColor="@color/white"/> -->
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,7 +40,40 @@
         android:layout_height="60dp"
         android:src="@drawable/ic_validate"
         android:id="@+id/validate_new_obj"
-        android:layout_below="@+id/code"
-        android:background="@color/colorPrimary"/>
+        android:background="@color/colorPrimary"
+        android:layout_below="@+id/fillnameobj"
+        android:layout_toRightOf="@+id/fillcode"
+        android:layout_toEndOf="@+id/fillcode"
+        android:layout_marginTop="74dp" />
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="151dp"
+        android:layout_height="38dp"
+        android:layout_x="26dp"
+        android:layout_y="234dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_below="@+id/fillnameobj"
+        android:layout_toRightOf="@+id/fillcode"
+        android:layout_toEndOf="@+id/fillcode" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Serial Number"
+        android:id="@+id/serial_number"
+        android:layout_toRightOf="@+id/fillcode"
+        android:layout_toEndOf="@+id/fillcode"
+        android:layout_alignBottom="@+id/tv_status" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/code"
+        android:text="Code: "
+        android:layout_below="@+id/tv_status"
+        android:layout_toRightOf="@+id/fillcode"
+        android:layout_toEndOf="@+id/fillcode"
+        android:layout_marginTop="16dp" />
 
 </RelativeLayout>

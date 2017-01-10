@@ -3,6 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.co.pickit_app.Accueil">
     <item
+        android:id="@+id/action_connect"
+        android:orderInCategory="100"
+        android:title="Login"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_list"
         android:orderInCategory="100"
         android:title="@string/title_activity_my_list"

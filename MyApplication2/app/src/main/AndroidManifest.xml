@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.co.pickit_app">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo_small"
@@ -49,6 +55,10 @@
         <activity
             android:name=".add_list"
             android:label="@string/title_activity_add_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Connection"
+            android:label="@string/title_activity_connection"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
