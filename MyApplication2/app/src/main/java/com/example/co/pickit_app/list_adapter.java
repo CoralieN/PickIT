@@ -11,22 +11,24 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import java.util.Arrays;
 import java.util.List;
-
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.EditText;
 
 public class list_adapter extends RecyclerView.Adapter<list_adapter.MyViewHolder>{
 
 
     private final List<Pair<String, String>> characters = Arrays.asList(
-            Pair.create("Baby", "Enable"),
-            Pair.create("Pepito", "Disable"),
-            Pair.create("Power supply", "Enable"),
-            Pair.create("Keyboard", "Disable"),
-            Pair.create("More Pepito", "Enable"),
-            Pair.create("Teddy Bear <3 ", "Enable"),
-            Pair.create("Color lens", "Enable"),
-            Pair.create("Wooden pencil", "Disable"),
-            Pair.create("Chocolate", "Disable"),
-            Pair.create("WSN paper", "Enable")
+            Pair.create("Baby", "Enabled"),
+            Pair.create("Pepito", "Disabled"),
+            Pair.create("Power supply", "Enabled"),
+            Pair.create("Keyboard", "Disabled"),
+            Pair.create("More Pepito", "Enabled"),
+            Pair.create("Teddy Bear <3 ", "Enabled"),
+            Pair.create("Color lens", "Enabled"),
+            Pair.create("Wooden pencil", "Disabled"),
+            Pair.create("Chocolate", "Disabled"),
+            Pair.create("WSN paper", "Enabled")
     );
 
     @Override
@@ -64,7 +66,7 @@ public class list_adapter extends RecyclerView.Adapter<list_adapter.MyViewHolder
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(view.getContext(), Edit_list.class);
-                    // TO DO: startActivity(intent);
+                    view.getContext().startActivity(intent);
                     /*new AlertDialog.Builder(itemView.getContext())
                             .setTitle(currentPair.first)
                             .setMessage(currentPair.second)

@@ -9,37 +9,47 @@ import java.util.ArrayList;
  * Created by Co on 30/12/2016.
  */
 
-public class Data extends Application{
+public class Data extends Application {
 
-    public ArrayList<String> Data_list_obj = new ArrayList<String>();
+    private static ArrayList<String> Data_list_obj = new ArrayList<String>();
 
-    public ArrayList<String> getList_obj() {
+    public Data() {
 
-        Data_list_obj.add("Pepito");
-        Data_list_obj.add("Power Supply");
-        Data_list_obj.add("Teddy Bear  <3");
-        Data_list_obj.add("Keyboard");
-        Data_list_obj.add("Color contacts");
-        Data_list_obj.add("Wooden pencil");
-        Data_list_obj.add("Chocolate");
-        Data_list_obj.add("WSN paper");
-        Data_list_obj.add("Tisseo Card");
-        Data_list_obj.add("ID");
-        Data_list_obj.add("Wallet");
-        Data_list_obj.add("USRP");
-        Data_list_obj.add("Headphones");
-
-        return Data_list_obj;
+       /* this.Data_list_obj.add("Pepito");
+        this.Data_list_obj.add("Power Supply");
+        this.Data_list_obj.add("Teddy Bear  <3");
+        this.Data_list_obj.add("Keyboard");
+        this.Data_list_obj.add("Color contacts");
+        this.Data_list_obj.add("Wooden pencil");
+        this.Data_list_obj.add("Chocolate");
+        this.Data_list_obj.add("WSN paper");
+        this.Data_list_obj.add("Tisseo Card");
+        this.Data_list_obj.add("ID");
+        this.Data_list_obj.add("Wallet");
+        this.Data_list_obj.add("USRP");
+        this.Data_list_obj.add("Headphones");*/
+    }
+    public void add_list(String val){
+        this.Data_list_obj.add(val);
     }
 
-    /*public void setList_obj(ArrayList<String> aList_obj) {
-        Data_list_obj = aList_obj;
+    public ArrayList<String> getList(){
+        return this.Data_list_obj;
     }
 
-    //add object to list
-    public void addObj_to_List(String addObj){
-        Data_list_obj.add(addObj);
-    }*/
+    public void remove_obj(String obj) {
+        int position = 1;
+        boolean find = false;
 
+        while (!find) {
+            if (this.Data_list_obj.get(position) == obj) {
+                find = true;
+            } else {
+                position++;
+            }
+        }
+
+        this.Data_list_obj.remove(position);
+    };
     // delete obj from list
 }

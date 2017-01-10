@@ -13,5 +13,28 @@
     tools:context="com.example.co.pickit_app.Edit_list"
     tools:showIn="@layout/activity_edit_list">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="List_name"
+        android:textSize="30dp"
+        android:id="@+id/edit_list_name"
+        android:textColor="@color/colorText"/>
+
+    <Switch
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:gravity="right"
+        android:id="@+id/edit_switchlist"
+        android:layout_toRightOf="@+id/edit_list_name"
+        android:theme="@style/SCBSwitch"/>
+
+    <ListView
+        android:id="@+id/listview_obj_in_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/edit_list_name">
+    </ListView>
 
 </RelativeLayout>

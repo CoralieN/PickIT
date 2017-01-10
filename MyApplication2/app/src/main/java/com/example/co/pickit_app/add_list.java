@@ -19,23 +19,20 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
 import java.util.ArrayList;
 
 public class add_list extends AppCompatActivity {
     public ImageButton validate_list = null;
     MyCustomAdapter dataAdapter = null;
     Data data = new Data();
-    ArrayList<String> data_obj = data.getList_obj();
+    ArrayList<String> data_obj = data.getList();
 
-    // We just copy; not really share the data !!!!
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_list);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_addlist);
         setSupportActionBar(toolbar);
 
         //Validate and go back to My lists

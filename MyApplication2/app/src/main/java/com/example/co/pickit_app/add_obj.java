@@ -17,7 +17,7 @@ public class add_obj extends AppCompatActivity {
     private Button scan = null;
     private ImageButton validate = null;
     Data data = new Data();
-    ArrayList<String> data_obj = data.Data_list_obj;
+    ArrayList<String> data_obj;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,7 @@ public class add_obj extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                data_obj.add(name.getText().toString());
+                data.add_list(name.getText().toString());
                 Intent intent = new Intent(add_obj.this, MyObj.class);
                 startActivity(intent);
             }

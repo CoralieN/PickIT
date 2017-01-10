@@ -17,12 +17,8 @@ import java.util.List;
 public class obj_adapter extends RecyclerView.Adapter<obj_adapter.MyViewHolder>{
 
 
-   /* public String Data_obj [] = {"Pepito","Power Supply","Keyboard","More Pepito","Teddy Bear <3","Color lens","Wooden pencil","Chocolate",
-                                    "WSN paper","USRP","Bus Card","ID","Computer","Wallet"};
-*/
-
     Data data = new Data();
-    public ArrayList<String> Data_obj = data.getList_obj();
+    public ArrayList<String> Data_obj = data.getList();
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -36,6 +32,7 @@ public class obj_adapter extends RecyclerView.Adapter<obj_adapter.MyViewHolder>{
 
     @Override
     public int getItemCount() {
+
         return Data_obj.size();
     }
 
