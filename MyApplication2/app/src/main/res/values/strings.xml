@@ -1,18 +1,18 @@
 <resources>
     <string name="app_name">PickIT</string>
     <string name="action_settings">Settings</string>
-    <string name="mes_listes">My lists</string>
-    <string name="mes_objets">My objects</string>
-    <string name="ma_bs">My Base Stations</string>
-    <string name="compte">My Account</string>
     <string name="a_propos">About PickIT</string>
     <string name="title_activity_my_list">My Lists</string>
     <string name="mail_pickit">contact@pickit.com</string>
     <string name="dab">#dab</string>
     <string name="title_activity_my_obj">My Objects</string>
     <string name="title_activity_about">About PickIT</string>
-    <string name="title_activity_my_bs">MyBS</string>
+    <string name="title_activity_my_bs">My Base Stations</string>
     <string name="title_activity_account">Account</string>
-    <string name="title_activity_add_obj">add_obj</string>
+    <string name="title_activity_add_obj">Add an object</string>
+    <string name="my_act_list">My active lists: </string>
+    <string name="button_scan">Scan the object</string>
+    <string name="title_activity_edit_list">Edit the list</string>
+    <string name="title_activity_add_list">Create a list</string>
 
 </resources>
