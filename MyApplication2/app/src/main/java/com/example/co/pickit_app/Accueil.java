@@ -10,7 +10,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
 
+import java.util.ArrayList;
+
 public class Accueil extends AppCompatActivity {
+
+    Data_list_list data_list_list = new Data_list_list();
+    ArrayList<Data_list> data_list = data_list_list.getList_List();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

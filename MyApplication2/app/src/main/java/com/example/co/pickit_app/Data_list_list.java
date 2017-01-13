@@ -9,10 +9,6 @@ import java.util.ArrayList;
 public class Data_list_list {
 
    public static ArrayList<Data_list> data_list_list = new ArrayList<Data_list>();
-         /*this.Data_list_list.add("Work");
-        this.Data_list_list.add("Trip to La Reunion");
-        this.Data_list_list.add("Weekend in Montpellier");
-        this.Data_list_list.add("Baby");*/
 
     //Add an object to the list of all the list
     public Data_list_list(){

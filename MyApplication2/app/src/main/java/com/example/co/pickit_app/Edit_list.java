@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
@@ -25,17 +26,18 @@ import java.util.List;
 public class Edit_list extends AppCompatActivity {
 
     Data data = new Data();
-    public Data_list_list data_list_list = new Data_list_list();
-    public ArrayList<Data_list> data_list= data_list_list.getList_List();
+    Data_list_list data_list_list = new Data_list_list();
+    ArrayList<Data_list> data_list= data_list_list.getList_List();
     public Data_list currentlist = null;
     ListView myList;
     final String EXTRA_NAME = "name_error";
-
+    int i=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_list);
+        final Switch state = (Switch) findViewById(R.id.edit_switchlist);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -45,10 +47,12 @@ public class Edit_list extends AppCompatActivity {
         // If validate back to My list
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_valid_list);
         TextView List_name = (TextView) findViewById(R.id.edit_list_name);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Edit_list.this, MyList.class);
+                data_list.get(i).setState(state.isChecked());
                 startActivity(intent);
             }
         });
@@ -56,8 +60,10 @@ public class Edit_list extends AppCompatActivity {
         if (intent != null) {
             List_name.setText(intent.getStringExtra(EXTRA_NAME));
             currentlist = findList(intent.getStringExtra(EXTRA_NAME), data_list);
-            Log.d("On passe le test", currentlist.getData_obj_of_list().get(1));
         }
+
+        state.setChecked(currentlist.getState());
+
         //Generate list View from ArrayList
         myList = (ListView) findViewById(R.id.listview_obj_in_list);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(Edit_list.this,
@@ -66,12 +72,12 @@ public class Edit_list extends AppCompatActivity {
     }
 
     Data_list findList(String name, ArrayList<Data_list> MyList){
-        for (Data_list list : MyList){
+        for (i = 0; i<MyList.size(); i++){
             Log.d("Name test", name);
-            Log.d("Name", list.getName());
-            if (list.getName().equals(name)){
-                Log.d("Trouvé",list.getName());
-                return list;
+            Log.d("Name", MyList.get(i).getName());
+            if (MyList.get(i).getName().equals(name)){
+                Log.d("Trouvé",MyList.get(i).getName());
+                return MyList.get(i);
             }
         }
         Log.d("Faileeeed","Error" );

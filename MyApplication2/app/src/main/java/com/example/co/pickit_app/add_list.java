@@ -55,11 +55,11 @@ public class add_list extends AppCompatActivity {
                 new_list.setName(name_text.getText().toString());
                 Log.d("Nom", name_text.getText().toString());
                 // Set State to false by default
-                new_list.setState(false);
+                new_list.setState(true);
                 Log.d("SetState","false");
                 new_list.setData_obj_of_list(list_obj);
                 ListOfList.add(new_list);
-                Log.d("OBJFINAL",list_obj.get(1));
+                //Log.d("OBJFINAL",list_obj.get(1));
                 Intent intent = new Intent(add_list.this, MyList.class);
                 startActivity(intent);
             }

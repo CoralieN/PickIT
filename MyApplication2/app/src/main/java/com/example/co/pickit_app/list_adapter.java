@@ -21,7 +21,7 @@ import android.widget.EditText;
 public class list_adapter extends RecyclerView.Adapter<list_adapter.MyViewHolder>{
 
     Data_list_list myList = new Data_list_list();
-    public ArrayList<Data_list> list = myList.getList_List();
+    ArrayList<Data_list> list = myList.getList_List();
 
     @Override
     public int getItemCount() {
