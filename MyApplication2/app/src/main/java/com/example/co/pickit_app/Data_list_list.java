@@ -8,35 +8,62 @@ import java.util.ArrayList;
 
 public class Data_list_list {
 
-    ArrayList<Data_list> data_list_list = new ArrayList<Data_list>();
+   public static ArrayList<Data_list> data_list_list = new ArrayList<Data_list>();
          /*this.Data_list_list.add("Work");
         this.Data_list_list.add("Trip to La Reunion");
         this.Data_list_list.add("Weekend in Montpellier");
         this.Data_list_list.add("Baby");*/
 
     //Add an object to the list of all the list
+    public Data_list_list(){
+    }
+
     public void add_list(Data_list val){
         this.data_list_list.add(val);
     }
 
     //Get the list of all all list
-    public ArrayList<Data_list> getList(){
+    public ArrayList<Data_list> getList_List(){
+      /*  Data_list new_obj = new Data_list();
+        ArrayList<String> obj = new ArrayList<>();
+        obj.add("papa");
+        obj.add("fegrg");
+        obj.add("ataert");
+        obj.add("garhreh");
+        new_obj.setName("Work");
+        new_obj.setState(false);
+        new_obj.setData_obj_of_list(obj);
+        this.data_list_list.add(new_obj);*/
         return this.data_list_list;
     }
 
+    //Get the big list
     //Get the Name of the list n°position
-    private String getName (int position){
+    public String getName (int position){
         return this.data_list_list.get(position).getName();
     }
 
     //Get the State of the list n°position
-    private boolean getState (int position){
+    public boolean getState (int position){
         return this.data_list_list.get(position).getState();
     }
 
+    //Get a list out of all the list
+    public Data_list getList(int position){
+        return this.data_list_list.get(position);
+    }
+
     //Get the Object registered in the list n°position
-    private ArrayList<String> getObj (int position){
+    public ArrayList<String> getObj (int position){
         return this.data_list_list.get(position).getData_obj_of_list();
+    }
+
+    public int getCount(){
+        return this.data_list_list.size();
+    }
+
+    public void addNewList(Data_list nouveau){
+        this.data_list_list.add(nouveau);
     }
     /*
     public void remove_obj(Data_list obj){ // A revoir  recherche par nom !!

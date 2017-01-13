@@ -18,15 +18,15 @@ public class Data_list {
 
             //GET
     public String getName() {
-        return name;
+        return  this.name;
     }
 
     public Boolean getState() {
-        return state;
+        return this.state;
     }
 
     public ArrayList<String> getData_obj_of_list(){
-        return data_obj_of_list;
+        return this.data_obj_of_list;
     }
 
             //SET
@@ -41,4 +41,5 @@ public class Data_list {
     public void setData_obj_of_list(ArrayList<String> data_obj_of_list) {
         this.data_obj_of_list = data_obj_of_list;
     }
+
 }

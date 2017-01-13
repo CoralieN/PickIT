@@ -25,8 +25,12 @@ import java.util.List;
 public class Edit_list extends AppCompatActivity {
 
     Data data = new Data();
-    ArrayList<String> data_obj = data.getList();
+    public Data_list_list data_list_list = new Data_list_list();
+    public ArrayList<Data_list> data_list= data_list_list.getList_List();
+    public Data_list currentlist = null;
     ListView myList;
+    final String EXTRA_NAME = "name_error";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +39,12 @@ public class Edit_list extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // To get the Extra
+        Intent intent = getIntent();
+
         // If validate back to My list
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_valid_list);
+        TextView List_name = (TextView) findViewById(R.id.edit_list_name);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,12 +53,29 @@ public class Edit_list extends AppCompatActivity {
             }
         });
 
+        if (intent != null) {
+            List_name.setText(intent.getStringExtra(EXTRA_NAME));
+            currentlist = findList(intent.getStringExtra(EXTRA_NAME), data_list);
+            Log.d("On passe le test", currentlist.getData_obj_of_list().get(1));
+        }
         //Generate list View from ArrayList
         myList = (ListView) findViewById(R.id.listview_obj_in_list);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(Edit_list.this,
-                android.R.layout.simple_list_item_1, data_obj);
+                android.R.layout.simple_list_item_1, currentlist.getData_obj_of_list());
         myList.setAdapter(adapter);
+    }
 
+    Data_list findList(String name, ArrayList<Data_list> MyList){
+        for (Data_list list : MyList){
+            Log.d("Name test", name);
+            Log.d("Name", list.getName());
+            if (list.getName().equals(name)){
+                Log.d("Trouvé",list.getName());
+                return list;
+            }
+        }
+        Log.d("Faileeeed","Error" );
+        return null;
     }
 }
 
