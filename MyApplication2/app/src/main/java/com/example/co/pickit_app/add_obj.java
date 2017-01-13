@@ -48,9 +48,11 @@ public class add_obj extends AppCompatActivity {
 
 
         //Completer ce clickListener pour ajouter un objet dans la table objects
+        // Completer pour récupérer le serial number entré par l'utilisateur et le passer en argument de la fonction
         validate.setOnClickListener(new View.OnClickListener() {
 
             EditText name = (EditText) findViewById(R.id.fillnameobj);
+            EditText serial_number = (EditText) findViewById(R.id.serial_number);
 
             @Override
             public void onClick(View view) {
@@ -69,10 +71,12 @@ public class add_obj extends AppCompatActivity {
 
                             String Name = name.getText().toString(); //retreive le texte tapé sur l'appli
                             System.out.println("obj_name !!!! " + Name);
+                            String Serial_number = serial_number.getText().toString();
 
 
 
                             request.addProperty("arg0", Name);
+                            request.addProperty("arg1", Serial_number);
 
 
                             System.out.println("coucou6");
@@ -126,3 +130,4 @@ public class add_obj extends AppCompatActivity {
             }
 
 }
+

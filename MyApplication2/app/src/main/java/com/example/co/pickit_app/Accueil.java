@@ -34,12 +34,6 @@ public class Accueil extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
 
-        if (id == R.id.action_connect) {
-            Intent intent = new Intent(Accueil.this, Connection.class);
-            startActivity(intent);
-            return true;
-        }
-
         if (id == R.id.action_list) {
             Intent intent = new Intent(Accueil.this, MyList.class);
             startActivity(intent);

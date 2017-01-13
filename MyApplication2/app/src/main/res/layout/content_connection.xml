@@ -17,7 +17,7 @@
         android:id="@+id/txtLogin"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="Login :"
         android:textStyle="bold"
         android:textColor="@android:color/holo_green_dark"
         android:layout_marginTop="62dp"
@@ -28,16 +28,16 @@
 
     <EditText
         android:id="@+id/Login"
-        android:layout_width="fill_parent"
+        android:layout_width="189dp"
         android:layout_height="wrap_content"
-        android:hint="Login"
+        android:hint=""
         android:inputType="text"
         android:layout_below="@id/txtLogin"
         />
 
     <TextView
         android:id="@+id/txtPwd"
-        android:layout_width="fill_parent"
+        android:layout_width="189dp"
         android:layout_height="wrap_content"
         android:text="Password : "
         android:textStyle="bold"
@@ -47,25 +47,43 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true" />
 
+ <!--   <EditText
+        android:id="@+id/Pwd"
+        android:layout_width="189dp"
+        android:layout_height="wrap_content"
+        android:layout_x="108dp"
+        android:layout_y="161dp"
+        android:inputType="textPassword" />-->
+
+    <!-- <EditText
+    android:id="@+id/Pwd"
+    android:layout_width="189dp"
+    android:layout_height="wrap_content"
+    android:inputType="text"
+    android:layout_below="@+id/txtPwd"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true" /> -->
+
+    <EditText
+        android:id="@+id/Pwd"
+        android:layout_width="189dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:layout_below="@+id/txtPwd"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:text="Connect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button_connect"
+        android:layout_below="@+id/Pwd"
+        android:layout_marginTop="20dp"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <EditText
-        android:id="@+id/Pwd"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:inputType="text"
-        android:layout_below="@+id/txtPwd"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/tv_status"
@@ -73,6 +91,8 @@
         android:layout_height="38dp"
         android:layout_x="26dp"
         android:layout_y="234dp"
+        android:layout_below="@+id/button_connect"
+        android:layout_marginTop="20dp"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>
