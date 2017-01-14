@@ -67,9 +67,9 @@ public class list_adapter extends RecyclerView.Adapter<list_adapter.MyViewHolder
             Log.d("display", list.getName());
             holder.name.setText(list.getName());
             if (list.getState())
-                holder.description.setText("Enable");
+                holder.description.setText("Enabled");
             else
-                holder.description.setText("Disable");
+                holder.description.setText("Disabled");
         }
     }
 }

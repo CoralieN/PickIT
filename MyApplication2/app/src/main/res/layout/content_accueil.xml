@@ -30,23 +30,14 @@
         android:textColor="@color/colorText"
         android:text="@string/my_act_list" />
 
-    <TextView
+    <ListView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:textColor="@color/colorTextHeel"
         android:layout_below="@id/my_active_list"
         android:textSize="25dp"
-        android:id="@+id/work"
-        android:text=" - Work"/>
+        android:id="@+id/Enabled_list"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:textColor="@color/colorTextHeel"
-        android:layout_below="@id/work"
-        android:textSize="25dp"
-        android:text=" - Baby"/>
 
 </RelativeLayout>

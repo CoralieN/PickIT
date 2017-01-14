@@ -66,6 +66,15 @@ public class add_list extends AppCompatActivity {
         }
         );
 
+        if (toolbar != null) {
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(add_list.this, MyList.class);
+                    startActivity(intent);;
+                }
+            });
+        }
         //Generate list View from ArrayList
         displayListView();
         //checkButtonClick();

@@ -25,7 +25,7 @@ public class MyObj extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_obj);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_myobj);
         setSupportActionBar(toolbar);
 
         fab = (FloatingActionButton) findViewById(R.id.fab_add_obj);
@@ -41,5 +41,17 @@ public class MyObj extends AppCompatActivity {
         final RecyclerView rv = (RecyclerView) findViewById(R.id.list_obj);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(new obj_adapter());
+
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+        if (toolbar != null) {
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MyObj.this, Accueil.class);
+                    startActivity(intent);;
+                }
+            });
+        }
     }
 }

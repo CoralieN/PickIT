@@ -38,7 +38,7 @@ public class Edit_list extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_list);
         final Switch state = (Switch) findViewById(R.id.edit_switchlist);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_editlist);
         setSupportActionBar(toolbar);
 
         // To get the Extra
@@ -69,8 +69,21 @@ public class Edit_list extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(Edit_list.this,
                 android.R.layout.simple_list_item_1, currentlist.getData_obj_of_list());
         myList.setAdapter(adapter);
+
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+        if (toolbar != null) {
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(Edit_list.this, MyList.class);
+                    startActivity(intent);;
+                }
+            });
+        }
     }
 
+    // Get the list corresponding to the given name
     Data_list findList(String name, ArrayList<Data_list> MyList){
         for (i = 0; i<MyList.size(); i++){
             Log.d("Name test", name);
