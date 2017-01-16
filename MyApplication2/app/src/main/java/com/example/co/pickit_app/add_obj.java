@@ -1,5 +1,6 @@
 package com.example.co.pickit_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -37,7 +38,7 @@ public class add_obj extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //scan = (Button) findViewById(R.id.scanbutton);
-        validate =(ImageButton) findViewById(R.id.validate_new_obj);
+        validate = (ImageButton) findViewById(R.id.validate_new_obj);
        /* scan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,7 +75,6 @@ public class add_obj extends AppCompatActivity {
                             String Serial_number = serial_number.getText().toString();
 
 
-
                             request.addProperty("arg0", Name);
                             request.addProperty("arg1", Serial_number);
 
@@ -92,13 +92,12 @@ public class add_obj extends AppCompatActivity {
                             androidHttpTransport.call(SOAP_ACTION, envelope);
 
                             System.out.println("coucou9");
-                            final SoapPrimitive response = (SoapPrimitive)envelope.getResponse();
+                            final SoapPrimitive response = (SoapPrimitive) envelope.getResponse();
 
                             System.out.println("coucou10");
 
 
-
-                            runOnUiThread (new Runnable(){
+                            runOnUiThread(new Runnable() {
                                 public void run() {
                                     TextView result = (TextView) findViewById(R.id.tv_status);
 
@@ -110,8 +109,7 @@ public class add_obj extends AppCompatActivity {
                                 }
                             });
 
-                        }
-                        catch(Exception e){
+                        } catch (Exception e) {
 
                             System.out.println("nous sommes dans l'exception " + e.getMessage());
                         }
@@ -127,9 +125,10 @@ public class add_obj extends AppCompatActivity {
 
                 /*Intent intent = new Intent(add_obj.this, MyObj.class);
                 startActivity(intent);*/
-            }
+
 
         //mDrawerToggle.setDrawerIndicatorEnabled(false);
+
         getSupportActionBar().setHomeButtonEnabled(true);
 
         if (toolbar != null) {
@@ -137,11 +136,13 @@ public class add_obj extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(add_obj.this, MyObj.class);
-                    startActivity(intent);;
+                    startActivity(intent);
+                    ;
                 }
             });
         }
     }
-
 }
+
+
 

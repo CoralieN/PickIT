@@ -18,7 +18,7 @@ import org.ksoap2.transport.HttpTransportSE;
 public class Connection extends AppCompatActivity {
 
     private final String NAMESPACE = "http://docs.insa.fr/";
-    private final String URL = "http://192.168.43.210:8080/Localhost_official/Localhost3306Service?WSDL";
+    private final String URL = "http://192.168.43.191:8080/Localhost_official/Localhost3306Service?WSDL";
     private final String SOAP_ACTION = "http://docs.insa.fr/connect";
     private final String METHOD_NAME = "connect";
     /** Called when the activity is first created. */
