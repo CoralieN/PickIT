@@ -6,8 +6,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.content.Intent;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import java.util.ArrayList;
+
 
 public class Accueil extends AppCompatActivity {
+
+    Data_list_list data_list_list = new Data_list_list();
+    ArrayList<Data_list> data_list = data_list_list.getList_List();
+    public ArrayList<String> currentlist = new ArrayList<>();
+    ListView myList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,8 +26,25 @@ public class Accueil extends AppCompatActivity {
         setContentView(R.layout.activity_accueil);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-            }
 
+        //Generate list View from ArrayList
+        currentlist = getEnabledName(data_list);
+
+        myList = (ListView) findViewById(R.id.Enabled_list);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(Accueil.this,
+                android.R.layout.simple_list_item_1, currentlist);
+        myList.setAdapter(adapter);
+            }
+    // Get the list of all Enabled List
+    ArrayList<String> getEnabledName(ArrayList<Data_list> list){
+        ArrayList<String> Enabled_list= new ArrayList<>();
+        for (Data_list mylist : list){
+            if (mylist.getState()){
+                Enabled_list.add(mylist.getName());
+            }
+        }
+        return Enabled_list;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

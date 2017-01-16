@@ -33,7 +33,7 @@ public class add_obj extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_obj);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_addObj);
         setSupportActionBar(toolbar);
 
         //scan = (Button) findViewById(R.id.scanbutton);
@@ -128,6 +128,20 @@ public class add_obj extends AppCompatActivity {
                 /*Intent intent = new Intent(add_obj.this, MyObj.class);
                 startActivity(intent);*/
             }
+
+        //mDrawerToggle.setDrawerIndicatorEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+        if (toolbar != null) {
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(add_obj.this, MyObj.class);
+                    startActivity(intent);;
+                }
+            });
+        }
+    }
 
 }
 

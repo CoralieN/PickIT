@@ -3,6 +3,7 @@ package com.example.co.pickit_app;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,7 +33,6 @@ public class obj_adapter extends RecyclerView.Adapter<obj_adapter.MyViewHolder>{
 
     @Override
     public int getItemCount() {
-
         return Data_obj.size();
     }
 
@@ -47,7 +47,6 @@ public class obj_adapter extends RecyclerView.Adapter<obj_adapter.MyViewHolder>{
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.mTextView.setText(Data_obj.get(position));
-
     }
 
 
