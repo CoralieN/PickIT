@@ -4,11 +4,14 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import android.support.v7.app.AppCompatActivity;
@@ -17,23 +20,12 @@ import android.widget.EditText;
 
 public class list_adapter extends RecyclerView.Adapter<list_adapter.MyViewHolder>{
 
-
-    private final List<Pair<String, String>> characters = Arrays.asList(
-            Pair.create("Baby", "Enabled"),
-            Pair.create("Pepito", "Disabled"),
-            Pair.create("Power supply", "Enabled"),
-            Pair.create("Keyboard", "Disabled"),
-            Pair.create("More Pepito", "Enabled"),
-            Pair.create("Teddy Bear <3 ", "Enabled"),
-            Pair.create("Color lens", "Enabled"),
-            Pair.create("Wooden pencil", "Disabled"),
-            Pair.create("Chocolate", "Disabled"),
-            Pair.create("WSN paper", "Enabled")
-    );
+    Data_list_list myList = new Data_list_list();
+    ArrayList<Data_list> list = myList.getList_List();
 
     @Override
     public int getItemCount() {
-        return characters.size();
+        return list.size();
     }
 
     @Override
@@ -45,40 +37,39 @@ public class list_adapter extends RecyclerView.Adapter<list_adapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        Pair<String, String> pair = characters.get(position);
-        holder.display(pair);
+        holder.display(holder,list.get(position));
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView name;
         private final TextView description;
-
-        private Pair<String, String> currentPair;
+        final String EXTRA_NAME = "name_error";
 
         public MyViewHolder(final View itemView) {
             super(itemView);
 
             name = ((TextView) itemView.findViewById(R.id.name));
-            description = ((TextView) itemView.findViewById(R.id.description));
+            description = ((TextView) itemView.findViewById(R.id.description));//State of the list
 
+            // Listen to a click on a the list and open the details (Enable/disable; object in the list)
             itemView.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(view.getContext(), Edit_list.class);
+                    intent.putExtra(EXTRA_NAME, name.getText().toString());
                     view.getContext().startActivity(intent);
-                    /*new AlertDialog.Builder(itemView.getContext())
-                            .setTitle(currentPair.first)
-                            .setMessage(currentPair.second)
-                            .show();*/
                 }
             });
         }
 
-        public void display(Pair<String, String> pair) {
-            currentPair = pair;
-            name.setText(pair.first);
-            description.setText(pair.second);
+        public void display(MyViewHolder holder, Data_list list) {
+            Log.d("display", list.getName());
+            holder.name.setText(list.getName());
+            if (list.getState())
+                holder.description.setText("Enabled");
+            else
+                holder.description.setText("Disabled");
         }
     }
 }

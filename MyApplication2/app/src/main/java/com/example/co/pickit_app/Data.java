@@ -14,21 +14,8 @@ public class Data extends Application {
     private static ArrayList<String> Data_list_obj = new ArrayList<String>();
 
     public Data() {
-
-       /* this.Data_list_obj.add("Pepito");
-        this.Data_list_obj.add("Power Supply");
-        this.Data_list_obj.add("Teddy Bear  <3");
-        this.Data_list_obj.add("Keyboard");
-        this.Data_list_obj.add("Color contacts");
-        this.Data_list_obj.add("Wooden pencil");
-        this.Data_list_obj.add("Chocolate");
-        this.Data_list_obj.add("WSN paper");
-        this.Data_list_obj.add("Tisseo Card");
-        this.Data_list_obj.add("ID");
-        this.Data_list_obj.add("Wallet");
-        this.Data_list_obj.add("USRP");
-        this.Data_list_obj.add("Headphones");*/
     }
+
     public void add_list(String val){
         this.Data_list_obj.add(val);
     }

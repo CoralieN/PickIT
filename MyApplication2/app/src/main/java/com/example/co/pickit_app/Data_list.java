@@ -9,24 +9,24 @@ import java.util.ArrayList;
 //A List is compose by its name, state (Enabled/disabled) and the list of its objects
 public class Data_list {
 
-    String name;
-    Boolean state;
-    ArrayList<String> data_obj_of_list = new ArrayList<>();
+    public String name;
+    public Boolean state;
+    public ArrayList<String> data_obj_of_list = new ArrayList<>();
 
     public Data_list() {
     }
 
             //GET
     public String getName() {
-        return name;
+        return  this.name;
     }
 
     public Boolean getState() {
-        return state;
+        return this.state;
     }
 
     public ArrayList<String> getData_obj_of_list(){
-        return data_obj_of_list;
+        return this.data_obj_of_list;
     }
 
             //SET
@@ -41,4 +41,5 @@ public class Data_list {
     public void setData_obj_of_list(ArrayList<String> data_obj_of_list) {
         this.data_obj_of_list = data_obj_of_list;
     }
+
 }
