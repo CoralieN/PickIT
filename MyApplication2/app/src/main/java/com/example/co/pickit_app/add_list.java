@@ -41,7 +41,7 @@ public class add_list extends AppCompatActivity {
 
     private final String NAMESPACE = "http://docs.insa.fr/";
     private final String URL = "http://192.168.43.191:8080/Localhost_official/Localhost3306Service?WSDL";
-    private final String SOAP_ACTION = "http://docs.insa.fr/connect";
+    private final String SOAP_ACTION = "http://docs.insa.fr/add_list";
     private final String METHOD_NAME = "add_list";
 
     private final String METHOD_NAME2 = "add_obj_in_list";
@@ -170,14 +170,8 @@ public class add_list extends AppCompatActivity {
                     }
                 };
 
-              // for(loop=0; loop<list_obj.size();loop++)
+
                 networkThread2.start();
-                /*try {
-                    networkThread2.sleep(500);
-                } catch (InterruptedException e) {
-                    System.out.println("nous sommes dans l'exception" + e.getMessage());
-                }
-                networkThread2.stop();*/
 
                 //Log.d("OBJFINAL",list_obj.get(1));
                 Intent intent = new Intent(add_list.this, MyList.class);

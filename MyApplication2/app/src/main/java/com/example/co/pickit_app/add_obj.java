@@ -22,7 +22,7 @@ public class add_obj extends AppCompatActivity {
 
     private final String NAMESPACE = "http://docs.insa.fr/";
     private final String URL = "http://192.168.43.191:8080/Localhost_official/Localhost3306Service?WSDL";
-    private final String SOAP_ACTION = "http://docs.insa.fr/connect";
+    private final String SOAP_ACTION = "http://docs.insa.fr/add_obj";
     private final String METHOD_NAME = "add_obj";
 
     private Button scan = null;

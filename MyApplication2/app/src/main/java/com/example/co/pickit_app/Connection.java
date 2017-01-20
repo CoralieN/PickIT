@@ -110,6 +110,24 @@ public class Connection extends AppCompatActivity {
                                     if (response.toString().contentEquals("Success!")){
                                         Intent intent = new Intent(Connection.this, Accueil.class);
                                         startActivity(intent);
+                                        /*Appeler les fonctions dans init*/
+                                        Init.get_obj_names();
+                                        try {
+                                            Init.get_all_the_list_names();
+                                        } catch (InterruptedException e) {
+                                            e.printStackTrace();
+                                        }
+                                        try {
+                                            Init.update_obj_in_list();
+                                        } catch (InterruptedException e) {
+                                            e.printStackTrace();
+                                        }
+                                        try {
+                                            Init.update_active_list();
+                                        } catch (InterruptedException e) {
+                                            e.printStackTrace();
+                                        }
+
                                     }
                                 }
                             });

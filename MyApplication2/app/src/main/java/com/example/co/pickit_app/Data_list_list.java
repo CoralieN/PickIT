@@ -11,15 +11,12 @@ public class Data_list_list {
    public static ArrayList<Data_list> data_list_list = new ArrayList<Data_list>();
 
     //Add an object to the list of all the list
-    public Data_list_list(){
-    }
 
-    public void add_list(Data_list val){
-        this.data_list_list.add(val);
+    public static void add_list(Data_list val){data_list_list.add(val);
     }
 
     //Get the list of all all list
-    public ArrayList<Data_list> getList_List(){
+    public static ArrayList<Data_list> getList_List(){
       /*  Data_list new_obj = new Data_list();
         ArrayList<String> obj = new ArrayList<>();
         obj.add("papa");
@@ -30,7 +27,7 @@ public class Data_list_list {
         new_obj.setState(false);
         new_obj.setData_obj_of_list(obj);
         this.data_list_list.add(new_obj);*/
-        return this.data_list_list;
+        return data_list_list;
     }
 
     //Get the big list

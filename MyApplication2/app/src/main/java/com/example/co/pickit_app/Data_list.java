@@ -11,9 +11,14 @@ public class Data_list {
 
     public String name; //nom de la liste
     public Boolean state; //etat de la liste
-    public ArrayList<String> data_obj_of_list = new ArrayList<>(); //liste des objects
+    public ArrayList<String> data_obj_of_list = new ArrayList<String>(); //liste des objects
 
     public Data_list() {
+    }
+
+    public Data_list(String name, Boolean state) {
+        this.name=name;
+        this.state=state;
     }
 
             //GET

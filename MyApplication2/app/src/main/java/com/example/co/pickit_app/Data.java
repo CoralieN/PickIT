@@ -10,6 +10,8 @@ import java.util.ArrayList;
 
 public class Data extends Application {
 
+    //liste des objets
+
     private static ArrayList<String> Data_list_obj = new ArrayList<String>();
 
     public Data() {
