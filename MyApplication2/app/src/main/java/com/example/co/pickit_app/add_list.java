@@ -37,14 +37,15 @@ public class add_list extends AppCompatActivity {
     ArrayList<Data_list> ListOfList = Big_list.getList_List();
     ArrayList<Object> ObjectList = new ArrayList<Object>();
 
+    private static int loop=0;
 
     private final String NAMESPACE = "http://docs.insa.fr/";
     private final String URL = "http://192.168.43.191:8080/Localhost_official/Localhost3306Service?WSDL";
     private final String SOAP_ACTION = "http://docs.insa.fr/connect";
     private final String METHOD_NAME = "add_list";
 
-    private final String METHOD_NAME2 = "add_objects_in_list";
-    private final String SOAP_ACTION2 = "http://docs.insa.fr/add_objects_in_list";
+    private final String METHOD_NAME2 = "add_obj_in_list";
+    private final String SOAP_ACTION2 = "http://docs.insa.fr/add_obj_in_list";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,7 +119,8 @@ public class add_list extends AppCompatActivity {
                     @Override
                     public void run() {
 
-                        try {
+
+
 
                             // Set the name of the new list
                             new_list.setName(name_text.getText().toString());
@@ -129,43 +131,53 @@ public class add_list extends AppCompatActivity {
                             new_list.setData_obj_of_list(list_obj);
                             ListOfList.add(new_list);
 
+                        for(loop=0; loop<list_obj.size();loop++) {
+
+                            try {
+                                SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME2);
+
+                                System.out.println("coucou1");
+
+                                request.addProperty("arg0", list_obj.get(loop));
+                                String Name = name_text.getText().toString(); //retreive le texte tapé sur l'appli
+                                request.addProperty("arg1", Name);
 
 
-                            SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME2);
+                                SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+                                envelope.setOutputSoapObject(request);
+                                HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
 
-                            request.addProperty("arg0",list_obj.get(0));
-                            String Name = name_text.getText().toString(); //retreive le texte tapé sur l'appli
-                            request.addProperty("arg1", Name);
+                                androidHttpTransport.debug = true;
 
+                                System.out.println("coucou3");
 
-                            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-                            envelope.setOutputSoapObject(request);
-                            HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
+                                androidHttpTransport.call(SOAP_ACTION2, envelope);
+                                final SoapPrimitive response = (SoapPrimitive) envelope.getResponse();
 
-                            androidHttpTransport.debug = true;
+                                runOnUiThread(new Runnable() {
+                                    public void run() {
 
+                                        System.out.println("coucoufinal 2 !!: " + response.toString());
 
-                            androidHttpTransport.call(SOAP_ACTION2, envelope);
-                            final SoapPrimitive response = (SoapPrimitive) envelope.getResponse();
+                                    }
+                                });
 
-                            runOnUiThread(new Runnable() {
-                                public void run() {
-                                    // TextView result = (TextView) findViewById(R.id.tv_status);
+                            } catch (Exception e) {
 
-                                    // System.out.println("coucou11");
-
-                                    //result.setText(response.toString());
-                                    System.out.println("coucoufinal 2 !!: "+ response.toString());
-                                }
-                            });
-
-                        } catch (Exception e) {
-
-                            System.out.println("nous sommes dans l'exception " + e.getMessage());
+                                System.out.println("nous sommes dans l'exception " + e.getMessage());
+                            }
                         }
                     }
                 };
+
+              // for(loop=0; loop<list_obj.size();loop++)
                 networkThread2.start();
+                /*try {
+                    networkThread2.sleep(500);
+                } catch (InterruptedException e) {
+                    System.out.println("nous sommes dans l'exception" + e.getMessage());
+                }
+                networkThread2.stop();*/
 
                 //Log.d("OBJFINAL",list_obj.get(1));
                 Intent intent = new Intent(add_list.this, MyList.class);
