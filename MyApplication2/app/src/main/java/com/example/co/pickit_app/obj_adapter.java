@@ -2,6 +2,7 @@ package com.example.co.pickit_app;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.Pair;
@@ -24,10 +25,22 @@ public class obj_adapter extends RecyclerView.Adapter<obj_adapter.MyViewHolder>{
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         public TextView mTextView;
+        final String EXTRA_NAME = "name_error";
+        private final TextView name;
 
         public MyViewHolder(View v) {
             super(v);
             mTextView = (TextView) v.findViewById(R.id.name_obj);
+            name =(TextView) v.findViewById(R.id.name_obj);
+
+            itemView.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(view.getContext(), Del_obj.class);
+                    intent.putExtra(EXTRA_NAME, name.getText().toString());
+                    view.getContext().startActivity(intent);
+                }
+            });
         }
     }
 

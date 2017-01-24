@@ -29,12 +29,20 @@
         android:layout_toRightOf="@+id/edit_list_name"
         android:theme="@style/SCBSwitch"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_list_name"
+        android:text="Delete"
+        android:background="@color/red"
+        android:id="@+id/del_list"/>
+
     <ListView
         android:id="@+id/listview_obj_in_list"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/edit_list_name">
+        android:layout_below="@+id/del_list">
     </ListView>
 
 </RelativeLayout>

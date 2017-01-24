@@ -49,6 +49,11 @@
         <activity
             android:name=".add_list"
             android:label="@string/title_activity_add_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".barcode" />
+        <activity
+            android:name=".Del_obj"
+            android:label="@string/title_activity_del_obj"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
