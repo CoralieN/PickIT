@@ -29,11 +29,11 @@
         android:id="@+id/scanbutton"
         android:textColor="@color/white"/> -->
 
-    <TextView
+    <!--TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/fillcode"
-        android:layout_below="@+id/code"/>
+        android:layout_below="@+id/code"/-->
 
     <ImageButton
         android:layout_width="60dp"
@@ -42,31 +42,24 @@
         android:id="@+id/validate_new_obj"
         android:background="@color/colorPrimary"
         android:layout_below="@+id/fillnameobj"
-        android:layout_toRightOf="@+id/fillcode"
-        android:layout_toEndOf="@+id/fillcode"
         android:layout_marginTop="74dp" />
 
     <TextView
         android:id="@+id/tv_status"
-        android:layout_width="151dp"
-        android:layout_height="38dp"
-        android:layout_x="26dp"
-        android:layout_y="234dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_below="@+id/fillnameobj"
-        android:layout_toRightOf="@+id/fillcode"
-        android:layout_toEndOf="@+id/fillcode" />
+        android:layout_below="@+id/validate_new_obj" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Serial Number"
         android:id="@+id/serial_number"
-        android:layout_toRightOf="@+id/fillcode"
-        android:layout_toEndOf="@+id/fillcode"
-        android:layout_alignBottom="@+id/tv_status" />
+        android:layout_below="@+id/fillnameobj" />
 
-    <TextView
+    <!--TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/code"
@@ -74,6 +67,6 @@
         android:layout_below="@+id/tv_status"
         android:layout_toRightOf="@+id/fillcode"
         android:layout_toEndOf="@+id/fillcode"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp" /-->
 
 </RelativeLayout>

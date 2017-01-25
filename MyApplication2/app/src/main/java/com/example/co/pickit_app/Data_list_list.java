@@ -10,6 +10,10 @@ public class Data_list_list {
 
    public static ArrayList<Data_list> data_list_list = new ArrayList<Data_list>();
 
+   public static ArrayList<String> active_list = new ArrayList<String>();
+
+    public static String Active_list_String = new String();
+
     //Add an object to the list of all the list
 
     public static void add_list(Data_list val){data_list_list.add(val);

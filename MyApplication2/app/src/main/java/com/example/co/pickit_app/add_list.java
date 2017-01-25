@@ -120,17 +120,6 @@ public class add_list extends AppCompatActivity {
                     public void run() {
 
 
-
-
-                            // Set the name of the new list
-                            new_list.setName(name_text.getText().toString());
-                            Log.d("Nom", name_text.getText().toString());
-                            // Set State to false by default
-                            new_list.setState(true);
-                            Log.d("SetState","false");
-                            new_list.setData_obj_of_list(list_obj);
-                            ListOfList.add(new_list);
-
                         for(loop=0; loop<list_obj.size();loop++) {
 
                             try {

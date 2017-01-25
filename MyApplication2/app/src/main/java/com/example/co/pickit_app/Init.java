@@ -170,7 +170,7 @@ public class Init {
     }
 
 
-
+//Ne marche pas, je n'arrive pas a entrer dans le if!!
     public static void update_active_list() throws InterruptedException {
         System.out.println("blabla1");
 
@@ -211,20 +211,22 @@ public class Init {
 
                             System.out.println(tokens[j]);
                             data_obj_of_list.add(tokens[j]);
+                            Data_list_list.active_list.add(tokens[j]);
+                            Data_list_list.Active_list_String=Data_list_list.Active_list_String+"\n"+tokens[j];
                         }
 
                        int k;
 
                        for (int i=0; i< Data_list_list.data_list_list.size(); i++){
 
-                           String name= Data_list_list.data_list_list.get(i).name +" ";
+                           String name= Data_list_list.data_list_list.get(i).name;
 
                            for(k=0; k<tokens.length; k++) {
                                System.out.println("list name!! : "+name);
                                System.out.println("tokens!! : "+tokens[k]);
 
-
-                               if (name.equals(tokens[k])) {
+                               //je n'arrive pas à rentrer dans le if!!!
+                               if (name.compareTo(tokens[k]) == 0) {
                                    System.out.println("Coucou c'est juuuste ");
                                    Data_list_list.data_list_list.get(i).state=Boolean.TRUE;
                                }

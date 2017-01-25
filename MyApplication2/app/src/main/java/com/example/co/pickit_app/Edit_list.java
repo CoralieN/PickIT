@@ -30,6 +30,8 @@ public class Edit_list extends AppCompatActivity {
     final String EXTRA_NAME = "name_error";
     int i=0;
 
+    TextView List_name=null;
+
     private final String NAMESPACE = "http://docs.insa.fr/";
     private final String URL = "http://192.168.43.191:8080/Localhost_official/Localhost3306Service?WSDL";
     private final String SOAP_ACTION = "http://docs.insa.fr/activate_list";
@@ -46,9 +48,13 @@ public class Edit_list extends AppCompatActivity {
         // To get the Extra
         Intent intent = getIntent();
 
+        //Problème ;
+        //final TextView List_name = (TextView) findViewById(R.id.edit_list_name);
+        //List_name.toString() n'affiche pas le bon truc
+
         // If validate back to My list
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_valid_list);
-        final TextView List_name = (TextView) findViewById(R.id.edit_list_name);
+        List_name = (TextView) findViewById(R.id.edit_list_name);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,8 +112,6 @@ public class Edit_list extends AppCompatActivity {
                     }
                 };
                 networkThread.start();
-
-
 
 
             }
