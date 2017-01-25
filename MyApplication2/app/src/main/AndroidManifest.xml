@@ -59,7 +59,7 @@
         <activity android:name=".barcode" />
         <activity
             android:name=".Del_obj"
-            android:label="@string/title_activity_del_obj"
+            android:label="@string/title_activity_del_obj"/>
 
         <activity
             android:name=".Accueil"

@@ -29,13 +29,12 @@
         android:layout_toRightOf="@+id/edit_list_name"
         android:theme="@style/SCBSwitch"/>
 
-    <Button
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/edit_list_name"
-        android:text="Delete"
-        android:background="@color/red"
-        android:id="@+id/del_list"/>
+        android:id="@+id/del_list"
+        android:src="@mipmap/ic_bin"/>
 
     <ListView
         android:id="@+id/listview_obj_in_list"
