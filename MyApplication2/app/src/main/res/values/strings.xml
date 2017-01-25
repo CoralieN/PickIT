@@ -14,6 +14,10 @@
     <string name="button_scan">Scan the object</string>
     <string name="title_activity_edit_list">Edit the list</string>
     <string name="title_activity_add_list">Create a list</string>
-    <string name="title_activity_connection">Home</string>
+
+    <string name="title_activity_del_obj">Delete this object ?</string>
+    <string name="title_activity_connection">Connection</string>
+
+
 
 </resources>

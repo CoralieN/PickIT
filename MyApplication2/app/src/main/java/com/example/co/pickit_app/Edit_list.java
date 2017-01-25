@@ -29,6 +29,7 @@ public class Edit_list extends AppCompatActivity {
     ListView myList;
     final String EXTRA_NAME = "name_error";
     int i=0;
+    String name = "to_change";
 
     TextView List_name=null;
 
@@ -54,7 +55,38 @@ public class Edit_list extends AppCompatActivity {
 
         // If validate back to My list
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_valid_list);
-        List_name = (TextView) findViewById(R.id.edit_list_name);
+
+      
+        TextView List_name = (TextView) findViewById(R.id.edit_list_name);
+        Button del = (Button)findViewById(R.id.del_list);
+
+        if (intent != null) {
+            List_name.setText(intent.getStringExtra(EXTRA_NAME));
+            currentlist = findList(intent.getStringExtra(EXTRA_NAME), data_list);
+            name = intent.getStringExtra(EXTRA_NAME);
+        }
+
+        del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = 0;
+                boolean find = false;
+
+                while (!find && position<data_list.size()) {
+                    if ((data_list.get(position).getName()).equals(name)) {
+                        find = true;
+                    } else {
+                        position++;
+                    }
+                }
+                if (find){
+                    data_list.remove(position);
+                }
+                Intent intent = new Intent(Edit_list.this, MyList.class);
+                startActivity(intent);
+            }
+        });
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,10 +149,7 @@ public class Edit_list extends AppCompatActivity {
             }
         });
 
-        if (intent != null) {
-            List_name.setText(intent.getStringExtra(EXTRA_NAME));
-            currentlist = findList(intent.getStringExtra(EXTRA_NAME), data_list);
-        }
+
 
         state.setChecked(currentlist.getState());
 
