@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_compte"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.captainluky.pickit.Compte">
+
+    <EditText
+        android:id="@+id/Nom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nom"
+        android:inputType="text"
+        android:layout_below="@id/txtNom"
+         />
+    <TextView
+
+        android:id="@+id/Parametre"
+        android:gravity="top"
+        android:text="PARAMETRES"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="normal|bold"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textColor="?android:attr/actionMenuTextColor" />
+    <TextView
+        android:id="@+id/txtPrenom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Prenom : "
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="20sp"
+        android:layout_below="@+id/Nom"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/Prenom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Prenom"
+        android:inputType="text"
+        android:layout_below="@+id/txtPrenom"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/txtNom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Nom : "
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_green_dark"
+        android:layout_marginTop="59dp"
+        android:textSize="20sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:id="@+id/txtemail"
+        android:text="E-mail :"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Prenom"
+        android:textSize="20sp"
+        android:textColor="@android:color/holo_green_dark"
+        android:textStyle="normal|bold" />
+    <EditText
+        android:id="@+id/email"
+        android:layout_below="@id/txtemail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="e-mail"/>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/email"
+        android:id="@+id/txtpassword"
+        android:text="Mot de passe"
+
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textColor="@android:color/holo_green_dark"
+        android:textStyle="normal|bold" />
+
+    <Button
+        android:text="Changer mot de passe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtpassword"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="29dp"
+        android:id="@+id/button" />
+</RelativeLayout>
