@@ -18,11 +18,6 @@
         android:title="@string/title_activity_my_bs"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_account"
-        android:orderInCategory="100"
-        android:title="@string/title_activity_account"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/action_about"
         android:orderInCategory="100"
         android:title="@string/a_propos"

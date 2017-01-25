@@ -9,11 +9,16 @@ import java.util.ArrayList;
 //A List is compose by its name, state (Enabled/disabled) and the list of its objects
 public class Data_list {
 
-    public String name;
-    public Boolean state;
-    public ArrayList<String> data_obj_of_list = new ArrayList<>();
+    public String name; //nom de la liste
+    public Boolean state; //etat de la liste
+    public ArrayList<String> data_obj_of_list = new ArrayList<String>(); //liste des objects
 
     public Data_list() {
+    }
+
+    public Data_list(String name, Boolean state) {
+        this.name=name;
+        this.state=state;
     }
 
             //GET

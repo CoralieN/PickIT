@@ -6,9 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.content.Intent;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
 import java.util.ArrayList;
 
 
@@ -26,6 +26,11 @@ public class Accueil extends AppCompatActivity {
         setContentView(R.layout.activity_accueil);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //ListView result = (ListView) findViewById(R.id.Enabled_list);
+
+        //TextView result = (TextView) findViewById(R.id.my_active_list);
+                //.setText(Data_list_list.Active_list_String);
 
         //Generate list View from ArrayList
         currentlist = getEnabledName(data_list);
@@ -86,11 +91,11 @@ public class Accueil extends AppCompatActivity {
             return true;
         }
 
-        if (id == R.id.action_account) {
+        /*if (id == R.id.action_account) {
             Intent intent = new Intent(Accueil.this, Connection.class); // Intent intent = new Intent(Accueil.this, Account.class); a remplacer par ça et creer un nouveau IF!
             startActivity(intent);
             return true;
-        }
+        }*/
 
 
 

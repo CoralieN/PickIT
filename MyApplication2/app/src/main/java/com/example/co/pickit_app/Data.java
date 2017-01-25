@@ -2,7 +2,6 @@ package com.example.co.pickit_app;
 
 import android.app.Application;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -11,14 +10,14 @@ import java.util.ArrayList;
 
 public class Data extends Application {
 
+    //liste des objets
+
     private static ArrayList<String> Data_list_obj = new ArrayList<String>();
 
     public Data() {
     }
 
-    public void add_list(String val){
-        this.Data_list_obj.add(val);
-    }
+    public void add_list(String val){        this.Data_list_obj.add(val);    }
 
     public ArrayList<String> getList(){
         return this.Data_list_obj;

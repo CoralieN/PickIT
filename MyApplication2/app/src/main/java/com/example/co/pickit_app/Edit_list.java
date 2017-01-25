@@ -1,27 +1,24 @@
 package com.example.co.pickit_app;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import org.ksoap2.SoapEnvelope;
+import org.ksoap2.serialization.SoapObject;
+import org.ksoap2.serialization.SoapPrimitive;
+import org.ksoap2.serialization.SoapSerializationEnvelope;
+import org.ksoap2.transport.HttpTransportSE;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class Edit_list extends AppCompatActivity {
 
@@ -34,6 +31,13 @@ public class Edit_list extends AppCompatActivity {
     int i=0;
     String name = "to_change";
 
+    TextView List_name=null;
+
+    private final String NAMESPACE = "http://docs.insa.fr/";
+    private final String URL = "http://192.168.43.191:8080/Localhost_official/Localhost3306Service?WSDL";
+    private final String SOAP_ACTION = "http://docs.insa.fr/activate_list";
+    private final String METHOD_NAME = "activate_list";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,8 +49,14 @@ public class Edit_list extends AppCompatActivity {
         // To get the Extra
         Intent intent = getIntent();
 
+        //Problème ;
+        //final TextView List_name = (TextView) findViewById(R.id.edit_list_name);
+        //List_name.toString() n'affiche pas le bon truc
+
         // If validate back to My list
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_valid_list);
+
+      
         TextView List_name = (TextView) findViewById(R.id.edit_list_name);
         Button del = (Button)findViewById(R.id.del_list);
 
@@ -78,13 +88,64 @@ public class Edit_list extends AppCompatActivity {
         });
 
 
-
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Edit_list.this, MyList.class);
                 data_list.get(i).setState(state.isChecked());
                 startActivity(intent);
+                System.out.println("Coucou j'ai activé la liste!!");
+
+
+                Thread networkThread = new Thread() {
+                    @Override
+                    public void run() {
+
+                        try {
+
+                            System.out.println("coucou2");
+                            SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+
+                            System.out.println("coucou3");
+
+                            //problème ici : Je ne récupère pas le nom de la liste!!!
+                            request.addProperty("arg0", List_name.toString());
+                            System.out.println("le nom de la liste : !!!! "+ List_name.toString());
+
+                            System.out.println("coucou6");
+
+
+                            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+                            envelope.setOutputSoapObject(request);
+                            HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
+
+                            androidHttpTransport.debug = true;
+
+                            System.out.println("coucou8");
+                            androidHttpTransport.call(SOAP_ACTION, envelope);
+
+                            System.out.println("coucou9");
+                            final SoapPrimitive response = (SoapPrimitive) envelope.getResponse();
+
+                            System.out.println("coucou10");
+
+
+                            runOnUiThread(new Runnable() {
+                                public void run() {
+
+                                    System.out.println(response.toString());
+                                }
+                            });
+
+                        } catch (Exception e) {
+
+                            System.out.println("nous sommes dans l'exception " + e.getMessage());
+                        }
+                    }
+                };
+                networkThread.start();
+
+
             }
         });
 

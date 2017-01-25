@@ -3,8 +3,6 @@ package com.example.co.pickit_app;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -13,15 +11,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.CheckBox;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import org.ksoap2.SoapEnvelope;
+import org.ksoap2.serialization.SoapObject;
+import org.ksoap2.serialization.SoapPrimitive;
+import org.ksoap2.serialization.SoapSerializationEnvelope;
+import org.ksoap2.transport.HttpTransportSE;
+
 import java.util.ArrayList;
-import java.util.logging.StreamHandler;
 
 public class add_list extends AppCompatActivity {
     public ImageButton validate_list = null;
@@ -35,7 +37,15 @@ public class add_list extends AppCompatActivity {
     ArrayList<Data_list> ListOfList = Big_list.getList_List();
     ArrayList<Object> ObjectList = new ArrayList<Object>();
 
+    private static int loop=0;
 
+    private final String NAMESPACE = "http://docs.insa.fr/";
+    private final String URL = "http://192.168.43.191:8080/Localhost_official/Localhost3306Service?WSDL";
+    private final String SOAP_ACTION = "http://docs.insa.fr/add_list";
+    private final String METHOD_NAME = "add_list";
+
+    private final String METHOD_NAME2 = "add_obj_in_list";
+    private final String SOAP_ACTION2 = "http://docs.insa.fr/add_obj_in_list";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +58,122 @@ public class add_list extends AppCompatActivity {
 
         name_text = (EditText) findViewById(R.id.edit_new_list_name);
         validate_list = (ImageButton) findViewById(R.id.valide_new_list);
+
+
         validate_list.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+
+                // 1er thread pour creer une nouvelle liste
+                Thread networkThread = new Thread() {
+                    @Override
+                    public void run() {
+
+                        try {
+
+                            // Set the name of the new list
+                            new_list.setName(name_text.getText().toString());
+                            Log.d("Nom", name_text.getText().toString());
+                            // Set State to false by default
+                            new_list.setState(true);
+                            Log.d("SetState","false");
+                            new_list.setData_obj_of_list(list_obj);
+                            ListOfList.add(new_list);
+
+                            SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+                            String Name = name_text.getText().toString(); //retreive le texte tapé sur l'appli
+                            request.addProperty("arg0", Name);
+                            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+                            envelope.setOutputSoapObject(request);
+                            HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
+
+                            androidHttpTransport.debug = true;
+
+
+                            androidHttpTransport.call(SOAP_ACTION, envelope);
+                            final SoapPrimitive response = (SoapPrimitive) envelope.getResponse();
+
+                            runOnUiThread(new Runnable() {
+                                public void run() {
+                                   // TextView result = (TextView) findViewById(R.id.tv_status);
+
+                                   // System.out.println("coucou11");
+
+                                    //result.setText(response.toString());
+                                    System.out.println("coucoufinal 1 !!: "+ response.toString());
+                                }
+                            });
+
+                        } catch (Exception e) {
+
+                            System.out.println("nous sommes dans l'exception " + e.getMessage());
+                        }
+                    }
+                };
+                networkThread.start();
+
+
+                //deuxième thread pour ajouter des objets dans la liste
+                Thread networkThread2 = new Thread() {
+                    @Override
+                    public void run() {
+
+
+                        for(loop=0; loop<list_obj.size();loop++) {
+
+                            try {
+                                SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME2);
+
+                                System.out.println("coucou1");
+
+                                request.addProperty("arg0", list_obj.get(loop));
+                                String Name = name_text.getText().toString(); //retreive le texte tapé sur l'appli
+                                request.addProperty("arg1", Name);
+
+
+                                SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+                                envelope.setOutputSoapObject(request);
+                                HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
+
+                                androidHttpTransport.debug = true;
+
+                                System.out.println("coucou3");
+
+                                androidHttpTransport.call(SOAP_ACTION2, envelope);
+                                final SoapPrimitive response = (SoapPrimitive) envelope.getResponse();
+
+                                runOnUiThread(new Runnable() {
+                                    public void run() {
+
+                                        System.out.println("coucoufinal 2 !!: " + response.toString());
+
+                                    }
+                                });
+
+                            } catch (Exception e) {
+
+                                System.out.println("nous sommes dans l'exception " + e.getMessage());
+                            }
+                        }
+                    }
+                };
+
+
+                networkThread2.start();
+
+                //Log.d("OBJFINAL",list_obj.get(1));
+                Intent intent = new Intent(add_list.this, MyList.class);
+                startActivity(intent);
+
+            }
+        });
+
+
+
+           /* @Override
+            public void onClick(View view) {
+
                 // Set the name of the new list
                 new_list.setName(name_text.getText().toString());
                 Log.d("Nom", name_text.getText().toString());
@@ -62,10 +185,10 @@ public class add_list extends AppCompatActivity {
                 //Log.d("OBJFINAL",list_obj.get(1));
                 Intent intent = new Intent(add_list.this, MyList.class);
                 startActivity(intent);
+
             }
         }
-        );
-
+        );*/
         if (toolbar != null) {
             toolbar.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override
