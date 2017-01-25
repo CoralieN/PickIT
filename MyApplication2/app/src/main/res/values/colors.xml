@@ -6,6 +6,7 @@
     <color name="colorAccent">#373434</color>
     <color name="colorTextHeel">#726F6F</color>
     <color name="white">#FFF</color>
+    <color name="red">#FF9999</color>
 
     <!-- Switch Colors -->
     <color name="disable_forground">#00B050</color>
